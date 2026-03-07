@@ -1,6 +1,8 @@
-// ping pong ball game
+// ping pong ball game @author : Zahin Bin Hasan
 // works only with 2 players, no ai
-// for ai uncomment Ai(&pad2, &ball); and comment updatePaddle_right(&pad2); in main loop
+// for 1 player, use the ai function for the other player
+// controls : player 1 : W and S, player 2 : UP and DOWN
+// It is a test project
 #include <raylib.h>
 #include <stdio.h>
 #include <math.h>
@@ -150,6 +152,7 @@ int main()
         DrawRectangleV(pad2.pos, pad2.size, GRAY);
         updatePaddle_right(&pad2);
         // Ai(&pad2, &ball);
+        // Ai(&pad1, &ball);
 
         checkCollision(&ball, &pad1);
         checkCollision(&ball, &pad2);
