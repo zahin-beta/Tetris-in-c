@@ -46,7 +46,7 @@ void updateScore(ball *ball, int *player1, int *player2)
         (*player2)++;
         ball->pos = (Vector2){GetScreenWidth() / 2, GetScreenHeight() / 2};
     }
-    if (ball->pos.x > GetScreenWidth())
+    if (ball->pos.x + ball->rad >= GetScreenWidth())
     {
         (*player1)++;
         ball->pos = (Vector2){GetScreenWidth() / 2, GetScreenHeight() / 2};
@@ -146,8 +146,8 @@ int main()
         DrawRectangleV(pad1.pos, pad1.size, GRAY);
         updatePaddle_left(&pad1);
         DrawRectangleV(pad2.pos, pad2.size, GRAY);
-        // updatePaddle_right(&pad2);
-        Ai(&pad2, &ball);
+        updatePaddle_right(&pad2);
+        //Ai(&pad2, &ball);
 
         checkCollision(&ball, &pad1);
         checkCollision(&ball, &pad2);
