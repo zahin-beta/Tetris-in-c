@@ -1,0 +1,50 @@
+# --- Compiled binaries ---
+*.exe
+*.dll
+*.so
+*.dylib
+
+# --- Object files ---
+*.o
+*.obj
+
+# --- Static/Shared libraries ---
+*.lib
+*.a
+
+# --- Build output folders ---
+/bin/
+/build/
+/Debug/
+/Release/
+
+# --- IDE-specific files ---
+*.user
+*.suo
+*.vcxproj*
+.idea/
+/.vscode/
+
+# --- Logs and temp files ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- OS-specific junk ---
+Thumbs.db
+.DS_Store
+
+# --- Competitive Programming Helper cache ---
+.cph/
+
+# --- CMake (if used) ---
+/CMakeFiles/
+/CMakeCache.txt
+
+# --- Python (if used) ---
+__pycache__/
+*.pyc
+
+# --- Node.js (if used) ---
+node_modules/
