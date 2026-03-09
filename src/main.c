@@ -14,11 +14,15 @@ int main ()
     InitWindow(sw,sh,"SNAKE GAME");
     SetTargetFPS(60);
 
+    Texture2D food = LoadTexture("../assets/food.png");
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(green);
+        DrawTexture(food,100,100,WHITE);
         EndDrawing();
     }
+    UnloadTexture(food);
     CloseWindow();
 }
