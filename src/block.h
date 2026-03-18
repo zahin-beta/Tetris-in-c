@@ -3,7 +3,8 @@
 #include "grid.h"
 #include <raylib.h>
 #include "color.h"
-
+#include "common.h"
+#include <stdbool.h>
 typedef enum
 {
     SHAPE_I,
@@ -26,5 +27,6 @@ typedef struct
 
 Block createBlock(shapeType type);
 void drawBlock(Block b, const Color *color);
-
+bool checkCollision(Block b, Grid g);
+void lockGrid(Block b, Grid *g);
 #endif
