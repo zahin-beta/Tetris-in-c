@@ -124,11 +124,18 @@ int main()
             BeginDrawing();
             ClearBackground(darkBlue);
 
-            DrawTextEx(font, "SCORE", (Vector2){365, 15}, 38, 2, WHITE);
-            DrawTextEx(font, "Next", (Vector2){370, 175}, 38, 2, WHITE);
-
+           
             DrawRectangleRounded((Rectangle){320, 55, 170, 60}, .3, 6, lightBlue);
             DrawRectangleRounded((Rectangle){320, 215, 170, 180}, .3, 6, lightBlue);
+
+            DrawTextEx(font, "SCORE", (Vector2){365, 15}, 38, 2, WHITE);
+            DrawTextEx(font, "Next", (Vector2){370, 175}, 38, 2, WHITE);
+            
+            char scoreText[10];
+            sprintf(scoreText, "%d", score);
+            Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
+            Vector2 textPos = {320 + (170 - textSize.x) / 2, 65};
+            DrawTextEx(font, scoreText, textPos, 38, 2, WHITE);
 
             drawGrid(g);
             drawBlock(b, getColor());
