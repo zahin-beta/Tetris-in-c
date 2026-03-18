@@ -34,7 +34,46 @@ void drawGrid(Grid g)
         for (int j = 0; j < WIDTH; j++)
         {
             int cellV = g.cell[i][j];
-            DrawRectangle(j * CELL_S + 1, i * CELL_S + 1, CELL_S - 1, CELL_S - 1, color[cellV]);
+            DrawRectangle(j * CELL_S + 11, i * CELL_S + 11, CELL_S - 1, CELL_S - 1, color[cellV]);
         }
     }
+}
+
+
+int clearLines (Grid * g)
+{
+    int lineCleared = 0;
+    for (int row = HEIGHT - 1; row >= 0; row--)
+    {
+        int linefull = 1;
+
+        for (int col = 0; col < WIDTH; col++)
+        {
+            if (g->cell[row][col] == 0)
+            {
+                linefull = 0;
+                break;
+            }
+            
+        }
+
+        if (linefull)
+        {
+            for ( int r = row; r > 0; r--)
+            {
+                for (size_t col = 0; col < WIDTH; col++)
+                {
+                    g->cell[r][col] = g->cell[r - 1][col];
+                }
+            }
+
+            for (size_t i = 0; i < WIDTH; i++)
+            {
+                g->cell[0][i] = 0;
+            }
+            lineCleared++;
+            row++;
+        }    
+    }
+    return lineCleared;
 }

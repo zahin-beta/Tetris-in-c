@@ -10,4 +10,5 @@ typedef struct Grid
 Grid createGrid();
 void printGrid(Grid g);
 void drawGrid(Grid g);
+int clearLines(Grid *g);
 #endif
