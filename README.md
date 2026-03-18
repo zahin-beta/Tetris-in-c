@@ -56,3 +56,16 @@ assets/
 ## 👤 Author
 
 **Zahin Bin Hasan**
+
+## ⬇️ How to Download & Play
+
+1. Go to [Releases](https://github.com/zahin-beta/Tetris-in-c/releases/tag/v1.0)
+2. Download `tetris.zip`
+3. Extract the zip
+4. Run `tetris.exe`
+
+> Windows only. No installation required.
+
+
+## 🙏 Credits
+This project was inspired by [this tutorial](https://www.youtube.com/watch?v=wVYKG_ch4yM&t=3036s).
