@@ -21,7 +21,7 @@ Block createBlock(shapeType type)
     }
     return b;
 }
-void drawBlock(Block b, const Color *color)
+void drawBlock(Block b, const Color *color, int x, int y)
 {
     for (int t = 0; t < 4; t++)
     {
@@ -31,8 +31,8 @@ void drawBlock(Block b, const Color *color)
         int col = (int)b.pos.x + offset_clm;
 
         DrawRectangle(
-            col * CELL_S + 11,
-            row * CELL_S + 11,
+            col * CELL_S + x,
+            row * CELL_S + y,
             CELL_S - 1,
             CELL_S - 1,
             color[b.type + 1]);

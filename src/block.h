@@ -26,7 +26,7 @@ typedef struct
 } Block;
 
 Block createBlock(shapeType type);
-void drawBlock(Block b, const Color *color);
+void drawBlock(Block b, const Color *color, int x,int y);
 bool checkCollision(Block b, Grid g);
 void lockBlocks(Block b, Grid *g);
 #endif
