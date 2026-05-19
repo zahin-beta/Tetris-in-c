@@ -29,4 +29,5 @@ Block createBlock(shapeType type);
 void drawBlock(Block b, const Color *color, int x,int y);
 bool checkCollision(Block b, Grid g);
 void lockBlocks(Block b, Grid *g);
+void drawGhost(Block b, Grid g, const Color *color, int x, int y);
 #endif

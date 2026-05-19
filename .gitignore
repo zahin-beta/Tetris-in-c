@@ -4,6 +4,8 @@
 *.so
 *.dylib
 
+*.bat
+
 # --- Object files ---
 *.o
 *.obj
@@ -41,10 +43,11 @@ Thumbs.db
 # --- CMake (if used) ---
 /CMakeFiles/
 /CMakeCache.txt
-
 # --- Python (if used) ---
 __pycache__/
 *.pyc
 
 # --- Node.js (if used) ---
 node_modules/
+
+release

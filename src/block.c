@@ -74,3 +74,26 @@ void lockBlocks(Block b, Grid *g)
         g->cell[row][col] = b.type + 1;
     }
 }
+
+void drawGhost(Block b, Grid g, const Color *color, int x, int y)
+{
+    Block ghost = b;
+    ghost.pos.y = b.pos.y;
+    while (!checkCollision(ghost, g))
+    {
+        ghost.pos.y++;
+    }
+    ghost.pos.y--;
+
+    Color ghostColor = color[b.type + 1];
+    ghostColor.a = 50;
+
+    for (int t = 0; t < 4; t++)
+    {
+        int offset_row = ghost.tiles[ghost.rotation][t][0];
+        int row = (int)ghost.pos.y + offset_row;
+        int offset_clm = ghost.tiles[ghost.rotation][t][1];
+        int col = (int)ghost.pos.x + offset_clm;
+        DrawRectangle(col * CELL_S + x, row * CELL_S + y, CELL_S - 1, CELL_S - 1, ghostColor);
+    }
+}
