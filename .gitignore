@@ -3,7 +3,7 @@
 *.dll
 *.so
 *.dylib
-
+*.ps1
 *.bat
 
 # --- Object files ---

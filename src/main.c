@@ -10,10 +10,16 @@
 #include "block.h"
 #include "tiles.h"
 #include "game_update.h"
+#include "resources/monogram_ttf.h"
+#include "resources/music_mp3.h"
+#include "resources/clear_mp3.h"
+#include "resources/rotate_mp3.h"
+#include "resources/over_mp3.h"
+#include "resources/highscore_txt.h"
 
 int loadHighScore()
 {
-    FILE *f = fopen("../assets/highscore.txt", "r");
+    FILE *f = fopen("highscore.txt", "r");
     if (!f) return 0;
     int hs;
     fscanf(f, "%d", &hs);
@@ -23,7 +29,7 @@ int loadHighScore()
 
 void saveHighScore(int hs)
 {
-    FILE *f = fopen("../assets/highscore.txt", "w");
+    FILE *f = fopen("highscore.txt", "w");
     if (!f) return;
     fprintf(f, "%d", hs);
     fclose(f);
@@ -40,7 +46,7 @@ int main()
 
     srand(time(NULL));
 
-    Font font = LoadFontEx("../assets/monogram.ttf", 64, 0, 0);
+    Font font = LoadFontFromMemory(".ttf", ASSETS_MONOGRAM_TTF, ASSETS_MONOGRAM_TTF_LEN, 64, 0, 0);
 
     Grid g = createGrid();
     Block b = createBlock(rand() % SHAPE_COUNT);
@@ -51,10 +57,16 @@ int main()
     int highScore = loadHighScore();
     bool showStart = true;
 
-    Music music = LoadMusicStream("../assets/music.mp3");
-    Sound clear = LoadSound("../assets/clear.mp3");
-    Sound rotate = LoadSound("../assets/rotate.mp3");
-    Sound over = LoadSound("../assets/over.mp3");
+    Music music = LoadMusicStreamFromMemory(".mp3", ASSETS_MUSIC_MP3, ASSETS_MUSIC_MP3_LEN);
+    Wave wClear = LoadWaveFromMemory(".mp3", ASSETS_CLEAR_MP3, ASSETS_CLEAR_MP3_LEN);
+    Sound clear = LoadSoundFromWave(wClear);
+    UnloadWave(wClear);
+    Wave wRotate = LoadWaveFromMemory(".mp3", ASSETS_ROTATE_MP3, ASSETS_ROTATE_MP3_LEN);
+    Sound rotate = LoadSoundFromWave(wRotate);
+    UnloadWave(wRotate);
+    Wave wOver = LoadWaveFromMemory(".mp3", ASSETS_OVER_MP3, ASSETS_OVER_MP3_LEN);
+    Sound over = LoadSoundFromWave(wOver);
+    UnloadWave(wOver);
     PlayMusicStream(music);
     bool sound = false;
     bool paused = false;
